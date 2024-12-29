@@ -23,6 +23,10 @@ html, body {
 }
 .slide{
     min-width: 100%;
+    display: none;
+}
+.slide:active{
+    display: block;
 }
 .slide img{
     width: 100%;
