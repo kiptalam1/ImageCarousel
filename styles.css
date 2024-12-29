@@ -8,12 +8,29 @@ html, body {
     font-family: Poppins, sans-serif;
     font-size: 16px;
 }
+body{
+    background: linear-gradient(to bottom, #333333, #000000);
+    color: white;
+}
 .carousel{
     overflow: hidden;
-    position: relative;
     width: 100%;
     margin: auto;
-    max-width: 800px;
+    position: relative;
+    max-width: 700px;
+    height: 800px;
+}
+.carousel h2{
+    margin: 20px;
+    font-size: 1.7rem;
+    color: white;
+    text-align: center;
+}
+.carousel h4{
+    font-size: 1rem;
+    font-style: italic;
+    text-align: center;
+    margin: 20px;
 }
 .carousel-slides{
     display: flex;
@@ -23,39 +40,88 @@ html, body {
 }
 .slide{
     min-width: 100%;
-    display: none;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease;
+
 }
 .slide.active{
-    display: block;
+    opacity: 1;
+    visibility: visible;
 }
 .slide img{
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
-.carousel .material-symbols-outlined{
+.slide p{
+    text-align: center;
+    font-size: 0.7rem;
+    font-style: italic;
+    margin: 5px;
+}
+.carousel .material-symbols-outlined.direction{
     position: absolute;
     top: 50%;
     transform: translateY(-50%); 
     font-size: 3rem;
     padding: 10px;
-    color: white;
+    color: rgba(255, 255, 255, 0.741);
     border: none;
     background: transparent;
     cursor: pointer;
     margin: 0;
+    z-index: 99;
+
 }
-.carousel .material-symbols-outlined:hover{
+.carousel .material-symbols-outlined.direction:hover{
     background: rgba(0, 0, 0, 0.1);
 }
+
 button{
     border-radius: 50%;
     text-align: center;
     margin: 0;
 }
 #back {
-    left: 0;
+    left: -10px;
 }
 #next { 
-    right: 0;
+    right: -10px;
+}
+.carousel-dots{
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin: 20px 0;
+}
+.carousel-dots .material-symbols-outlined {
+    font-size: 20px;
+    color: gray; /* Default dot color */
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.carousel-dots .material-symbols-outlined:hover {
+    transform: scale(1.2);
+}
+.carousel-dots .material-symbols-outlined.filled {
+    color: rgb(13, 215, 13);
+    fill: 100;
+    background-color: rgb(13, 215, 13);
+    border-radius: 50%;
+    animation: pulse 1s infinite;
+}
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
 }
